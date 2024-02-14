@@ -14,9 +14,9 @@ for(let key of keys){
             display_output.innerHTML="";
         }
         else if(value=="del"){
-            if(input.length=1){
-                display_input.innerHTML="0";
+            if(input.length==1){
                 input="";
+                display_input.innerHTML="0";
             }else{
                 input=input.slice(0,-1);
                 display_input.innerHTML=formate_input(input);
