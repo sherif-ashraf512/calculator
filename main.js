@@ -24,7 +24,11 @@ for(let key of keys){
         }
         else if(value=="="){
             let result = eval(prepare_input(input));
-            input=result.toString();
+            if(result=="Infinity" || result=="-Infinity" || result.toString()=="NaN"){
+                input="";
+            }else{
+                input=result.toString();
+            }
             display_output.innerHTML=formate_output((result));
         }
         else if(value=="brackets"){
