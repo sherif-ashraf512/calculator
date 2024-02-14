@@ -84,6 +84,14 @@ function formate_output(output){
         }
     }
 
+    if(digit_array.length > 14 && digit_array.length <= 18 ){
+        display_output.style.fontSize="2.5rem";
+    }else if(digit_array.length > 18){
+        display_output.style.fontSize="2rem";
+    }else{
+        display_output.style.fontSize="3rem";
+    }
+
     if(decimal){
         let decimal_array = decimal.split("");
         digit_array.push(".");
