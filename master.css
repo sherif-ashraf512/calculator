@@ -19,7 +19,7 @@ body{
 
 .calculator{
     display: flex;
-    width: 85%;
+    width: 92%;
     max-width: 375px;
     background-color: #22252D;
     flex-direction: column;
