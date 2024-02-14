@@ -24,7 +24,7 @@ for(let key of keys){
         }
         else if(value=="="){
             let result = eval(prepare_input(input));
-            input="";
+            input=result;
             display_output.innerHTML=formate_output((result));
         }
         else if(value=="brackets"){
