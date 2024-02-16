@@ -5,15 +5,19 @@ let keys = document.querySelectorAll(".key");
 
 let input="";
 
+let sts=0;
+
 for(let key of keys){
     let value = key.dataset.key;
     key.addEventListener('click',()=>{
         if(value=="clear"){
+            sts=0;
             input="";
             display_input.innerHTML="0";
             display_output.innerHTML="";
         }
         else if(value=="del"){
+            sts=0;
             if(input.length==1 || input.length==0){
                 input="";
                 display_input.innerHTML="0";
@@ -23,6 +27,7 @@ for(let key of keys){
             }
         }
         else if(value=="="){
+            sts=1;
             let result = eval(prepare_input(input));
             if(result=="Infinity" || result=="-Infinity" || result.toString()=="NaN"){
                 input="";
@@ -32,6 +37,7 @@ for(let key of keys){
             display_output.innerHTML=formate_output((result));
         }
         else if(value=="brackets"){
+            sts=0;
             if(input.indexOf("(")== -1 || input.indexOf("(")!= -1 && input.indexOf(")")!= -1 && input.lastIndexOf(")")>input.lastIndexOf("(")){
                 input+="(";
             }else{
@@ -41,7 +47,17 @@ for(let key of keys){
         }
         else{
             if(validate_input(value)){
-                input+=value;
+                if(sts==1){
+                    if (["+", "-", "*", "/"].includes(value)) {
+                        sts=0;
+                        input+=value;
+                    }else{
+                        input=value;
+                    }
+                }else{
+                    sts=0;
+                    input+=value;
+                }
                 display_input.innerHTML=formate_input(input);
             }
         }
