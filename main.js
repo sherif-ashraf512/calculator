@@ -48,7 +48,7 @@ for(let key of keys){
         else{
             if(validate_input(value)){
                 if(sts==1){
-                    if (["+", "-", "*", "/"].includes(value)) {
+                    if (["+", "-", "*", "/", "%"].includes(value)) {
                         sts=0;
                         input+=value;
                     }else{
