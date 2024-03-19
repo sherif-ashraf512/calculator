@@ -52,6 +52,7 @@ for(let key of keys){
                         sts=0;
                         input+=value;
                     }else{
+                        sts=0;
                         input=value;
                     }
                 }else{
